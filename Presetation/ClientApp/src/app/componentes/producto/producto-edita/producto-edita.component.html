@@ -1,0 +1,70 @@
+<div class="body">
+    <div class="return"><br>
+        <div class="return-1">
+            <button class="button type1" id="boton-registrar-atras" [routerLink]="['/productoConsulta']">Atrás</button>
+        </div>
+    </div>
+    <div class="container-1">
+                <br><h5 class="text-center" >Actualizar informacion | Eliminar producto</h5><br>
+    
+                <form [formGroup]="formGroup">
+
+                    <div class="form-group">
+                        <label>Codigo Producto</label>
+                        <input type="text" formControlName="idProducto" class="form-control"  readonly value={{idn}}
+                            [ngClass]="{ 'is-invalid':  control.idProducto.errors }" />
+                        <div *ngIf=" control.idProducto.errors" class="invalid-feedback">
+                            <div *ngIf="control.idProducto.errors.required">este codigo es requerido</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" formControlName="nombre" class="form-control" value= {{_nombre}}
+                            [ngClass]="{ 'is-invalid':  control.nombre.errors }" />
+                        <div *ngIf=" control.nombre.errors" class="invalid-feedback">
+                            <div *ngIf="control.nombre.errors.required">El nombre es requerido</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Tipo</label>
+                        <input type="text" formControlName="tipo" class="form-control" value= {{_tipo}}
+                            [ngClass]="{ 'is-invalid':  control.tipo.errors }" />
+                        <div *ngIf=" control.tipo.errors" class="invalid-feedback">
+                            <div *ngIf="control.tipo.errors.required">El tipo es requerido</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="precio">Precio</label>
+                        <input type="number" name="precio" formControlName="precio" placeholder="digite su precio" value= {{_precio}}
+                            class="form-control" [ngClass]="{'is-invalid':control.precio.errors}" />
+    
+                       <div *ngIf="control.precio.errors" class="invalid-feedback">
+                       <div *ngIf="control.precio.errors.required">El precio es requerido</div>
+                    </div>
+                    </div>
+    
+                    <div class="text-center">
+                        <button class="btn btn-outline-dark" (click)=" openSm(content)" [disabled]="formGroup.invalid">Actualizar</button>
+                        
+                            <ng-template #content let-modal>
+                                <div class="modal-header">
+                                  <h4 class="modal-title">Modificar Producto?</h4>
+                                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <p>seguro que desea modificar a {{idn}}&hellip;</p>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-outline-dark" (click)=" onSubmit()" (click)="modal.close('Close click')">Modificar</button>
+                                </div>
+                              </ng-template>
+
+                    </div>
+                </form>
+    </div>
+</div>

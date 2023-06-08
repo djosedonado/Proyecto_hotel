@@ -1,0 +1,104 @@
+.img-container{
+    width:100px;
+    height:100px;
+    overflow:hidden;
+    border-radius: 100%;
+    border: 2px rgb(230, 197, 197) solid;
+    margin:8px;
+}
+.img-container img{
+    height:100%;
+    width: auto;
+}
+.logo{
+    height: 200px;
+} 
+.dropdown-menu{
+    width: 50px;
+}
+.btn{
+    cursor: pointer;
+}
+.dropdown-item:hover{
+    background: #437269;
+}
+.banner{
+    color: white;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../../../../assets/images/laputmdre.jpg");
+}
+
+/***************** nav-bar inferior *****************/
+
+#nav-wrapper{
+    background-color: rgb(52, 38, 56);
+    border-radius:10px;
+    display: flex;
+    justify-content: center;
+    font-size: large;
+    width: 95%;
+    margin: auto;
+}
+#ju{
+    background-color: rgb(52, 38, 56);
+    border-radius: 3px;
+}
+#ju a{
+    color: #ffffff;    
+}
+#ju a:hover{
+    cursor:pointer;
+    background-color: rgb(75, 54, 80);
+}
+/***************** nav-bar inferior *****************/
+
+.contenedorTodo{
+    width: 100%;
+    height: 100%;
+    
+    background-image: url("../../../../assets/images/Captura.PNG");
+}
+
+.averotravez{
+    min-width: 500px;
+    min-height: 700px;
+    background-image: url("../../../../assets/images/ppl.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.alv{
+    margin:3px;
+    border-radius:5px;
+    color: white;
+    background-color: rgb(52, 38, 56);
+}
+
+
+.container-1{
+    width: 70%;
+    margin: auto;
+    border-radius: 2%;
+    background: rgba(20, 20, 20, 0.9);
+    background: -moz-linear-gradient(left, rgba(5, 5, 5, 0.9) 0%, rgba(20, 19, 19, 0.9) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(14, 13, 13, 0.9)), color-stop(100%, rgba(15, 14, 14, 0.9)));
+    background: -webkit-linear-gradient(left, rgba(14, 13, 13, 0.9) 0%, rgba(8, 8, 8, 0.9) 100%);
+    background: -o-linear-gradient(left, rgba(17, 16, 16, 0.9) 0%, rgba(10, 10, 10, 0.9) 100%);
+    background: -ms-linear-gradient(left, rgba(10, 10, 10, 0.9) 0%, rgba(8, 8, 8, 0.9) 100%);
+    background: linear-gradient(to right, rgba(19, 18, 18, 0.9) 0%, rgba(20, 20, 20, 0.9) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );
+}
+
+.button{position:relative;padding:1em 1.5em;border:none;background-color:transparent;cursor:pointer;outline:0;font-size:18px;}
+ .button.type1{color:rgb(17, 16, 16); }
+ .button.type1.type1::after,.button.type1.type1::before{content:"";display:block;position:absolute;width:20%;height:20%;border:2px solid;transition:all .6s ease;border-radius:1px}
+ .button.type1.type1::after{bottom:0;right:0;border-color:transparent rgb(17, 17, 17) rgb(8, 8, 8) transparent}
+ .button.type1.type1::before{top:0;left:0;border-color:rgb(14, 13, 13) transparent transparent rgb(17, 17, 17)}
+ .button.type1.type1:hover:after,.button.type1.type1:hover:before{width:100%;height:100%}
+
+ #boton-registrar-atras{
+    width: 20%;
+    align-items: center;
+ }

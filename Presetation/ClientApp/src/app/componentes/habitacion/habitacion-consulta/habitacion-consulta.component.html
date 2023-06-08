@@ -1,0 +1,198 @@
+<div>
+  <div>
+    <div><br>
+      <div>
+        <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Type to filter">
+      </div>
+    </div><br>
+
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header card-header-primary">
+          <h4 class="card-title ">Habitaciones</h4>
+          <p class="card-category">Habitaciones que hay en el hotel la floresta</p>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table" *ngIf='habitaciones && habitaciones.length'>
+              <thead>
+                <tr>
+                  <th class="text-center" scope="col">Codigo</th>
+                  <th class="text-center" scope="col">Tipo </th>
+                  <th class="text-center" scope="col">Precio</th>
+                  <th class="text-center" scope="col">Descripcion</th>
+                  <th class="text-center" scope="col">Aire</th>
+                  <th class="text-center" scope="col">Ventilador</th>
+                  <th class="text-center" scope="col">Ver</th>
+                  <th class="text-center" scope="col">Eliminar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let habitacion of habitaciones|filtroHabitacion:searchText; index as i">
+                  <td class="text-center">{{ habitacion.idHabitacion }} </td>
+                  <td class="text-center">{{ habitacion.tipo }}</td>
+                  <td class="text-center">{{ habitacion.precio }}</td>
+                  <td class="text-center">{{ habitacion.descripcion }}</td>
+                  <td class="text-center">{{ habitacion.aire }}</td>
+                  <td class="text-center">{{ habitacion.ventilador }}</td>
+                  <td class="text-center"><i class="material-icons" 
+                    (click)="openScrollableContent(longContent)"
+                      (click)="consultaId(habitacion.idHabitacion)">visibility</i></td>
+
+                  <!----------------------------------------------Modal Ver----------------------------------------------->
+                  <ng-template #longContent let-modal>
+                    <div class="card">
+                      <div class="modal-header">
+                        <div class="card-header card-header-primary" id="pruebaxd">
+                          <h4 class="card-title ">Ver habitaciones</h4>
+                          <p class="card-category">Datos de la habitacion {{habitacion.idHabitacion}}</p>
+                        </div>
+                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="modal-body">
+                      <div class="container-1">
+                        <form [formGroup]="formGroup">
+
+                          <div class="form-group">
+                            <label>Codigo</label>
+                            <input type="text" formControlName="idHabitacion" class="form-control" readonly
+                              value={{idn}} [ngClass]="{ 'is-invalid':  control.idHabitacion.errors }" />
+                            <div *ngIf=" control.idHabitacion.errors" class="invalid-feedback">
+                              <div *ngIf="control.idHabitacion.errors.required">La Codigo es requerido</div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="tipo">Tipo</label>
+                            <select class="custom-select" id="Tipo" formControlName="tipo" class="form-control"
+                              value={{_tipo}} 
+                              [ngClass]="{'is-invalid':control.tipo.errors}">
+                              <option selected></option>
+                              <option value="Doble">Doble</option>
+                              <option value="Para pareja">Para pareja</option>
+                              <option value="King">King</option>
+                              <option value="Sencilla">Sencilla</option>
+                              <option value="Triple">Triple</option>
+                              <option value="Simple+">Simple+</option>
+                              <option value="Ligth">Ligth</option>
+                              <option value="Soltero">Soltero</option>
+                            </select>
+                            <div *ngIf="control.tipo.errors" class="invalid-feedback">
+                              <div *ngIf="control.tipo.errors.required">Debe Seleccionar una opción</div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="precio">precio</label>
+                            <input type="number" name="precio" formControlName="precio" class="form-control"
+                              value={{_precio}} [ngClass]="{'is-invalid':control.precio.errors}" />
+
+                            <div *ngIf="control.precio.errors" class="invalid-feedback">
+                              <div *ngIf="control.precio.errors.required">El precio es requerido</div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label>descripcion</label>
+                            <input type="text" formControlName="descripcion" class="form-control" value={{_descripcion}}
+                              [ngClass]="{ 'is-invalid':  control.descripcion.errors }" />
+                            <div *ngIf=" control.descripcion.errors" class="invalid-feedback">
+                              <div *ngIf="control.descripcion.errors.required">Agregue una descripción</div>
+                            </div>
+                          </div>
+                          <!---->
+                          <div class="form-group">
+                            <label for="aire">aire</label>
+                            <select class="custom-select" id="aire" formControlName="aire" class="form-control"
+                              value={{_aire}} [ngClass]="{'is-invalid':control.aire.errors}">
+                              <option selected></option>
+                              <option value="si">Si</option>
+                              <option value="no">No</option>
+                            </select>
+                            <div *ngIf="control.aire.errors" class="invalid-feedback">
+                              <div *ngIf="control.aire.errors.required">Debe Seleccionar una opción</div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="ventilador">ventilador</label>
+                            <select class="custom-select" id="ventilador" formControlName="ventilador"
+                              value={{_ventilador}} class="form-control"
+                              [ngClass]="{'is-invalid':control.ventilador.errors}">
+                              <option selected></option>
+                              <option value="si">Si</option>
+                              <option value="no">No</option>
+                            </select>
+                            <div *ngIf="control.ventilador.errors" class="invalid-feedback">
+                              <div *ngIf="control.ventilador.errors.required">Debe Seleccionar una opción</div>
+                            </div>
+                          </div>
+
+                          <div class="text-center">
+                            <button class="btn btn-outline-dark" (click)=" openSm(content)"
+                              [disabled]="formGroup.invalid">Actualizar</button>
+                            <!-----------------------este modal es quien confirma la edicion------------------------>
+                            <ng-template #content let-modal>
+                              <div class="card">
+                                <div class="modal-header">
+                                  <div class="card-header card-header-primary" id="pruebaxd">
+                                    <h4 class="card-title ">Modificar habitacion?
+                                    </h4>
+                                  </div>
+                                  <button type="button" class="close" aria-label="Close"
+                                    (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <div class="modal-body">
+                                <p>seguro que desea modificar la habitacion {{idn}}&hellip;</p>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-dark" (click)=" onSubmit()"
+                                  (click)="modal.close('Close click')">Modificar</button>
+                              </div>
+                            </ng-template>
+                            <!-----------------------este modal es quien confirma la edicion------------------------>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </ng-template>
+                  <!--------------------------------------------Fin modal ver--------------------------------------------->
+
+                  <td class="text-center"><i class="material-icons" (click)=" openSm(content)">how_to_vote</i></td>
+
+                  <!-----------------------------------Modal confirmación de eliminación---------------------------------->
+                  <ng-template #content let-modal>
+                    <div class="card">
+                      <div class="modal-header">
+                        <div class="card-header card-header-primary" id="pruebaxd">
+                          <h4 class="card-title ">Eliminar habitacion?</h4>
+                        </div>
+                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="modal-body">
+                      <p>seguro que desea eliminar la habitacion {{habitacion.idHabitacion}}&hellip;</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-outline-dark" (click)=" delete(habitacion.idHabitacion)"
+                        (click)="modal.close('Close click')">Eliminar</button>
+                    </div>
+                  </ng-template>
+                  <!----------------------------------------Fin Modal------------------------------------------------------>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

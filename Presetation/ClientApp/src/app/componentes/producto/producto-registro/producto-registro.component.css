@@ -1,0 +1,33 @@
+
+.return{
+    padding: 2%;
+    margin: auto;
+}
+
+.return-1{
+    text-align: center;
+}
+
+.body{
+    display: flex;
+    justify-content: center;
+}
+
+.button{position:relative;padding:1em 1.5em;border:none;background-color:transparent;cursor:pointer;outline:0;font-size:18px;}
+ .button.type1{color:#fff; }
+ .button.type1.type1::after,.button.type1.type1::before{content:"";display:block;position:absolute;width:20%;height:20%;border:2px solid;transition:all .6s ease;border-radius:1px}
+ .button.type1.type1::after{bottom:0;right:0;border-color:transparent #fff #fff transparent}
+ .button.type1.type1::before{top:0;left:0;border-color:#fff transparent transparent #fff}
+ .button.type1.type1:hover:after,.button.type1.type1:hover:before{width:100%;height:100%}
+
+ #boton-registrar-atras{
+     width: 48%;
+ }
+
+ .table{
+     border-radius: 1%;
+ }
+
+ .text-center{
+     padding-bottom: 10%;
+ }

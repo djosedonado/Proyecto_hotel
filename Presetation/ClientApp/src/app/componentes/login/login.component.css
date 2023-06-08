@@ -1,0 +1,30 @@
+.contTodo{
+    background-color: #eceaea;
+}
+
+.contLogin{
+    background-color: honeydew;
+}
+
+.h2{
+    font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 300;
+    font-size: 2rem;
+ }
+
+ .login-card-description{
+    font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 300;
+    font-size: 1rem;
+ }
+
+.card{
+    border-radius: 20px;
+}
+.btn{
+    display: flex;
+    flex-direction: row;
+}
+.nav-link{
+    cursor: pointer;
+}

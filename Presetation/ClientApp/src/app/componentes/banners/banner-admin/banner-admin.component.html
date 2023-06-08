@@ -1,0 +1,63 @@
+<div class="banner">
+    <div class="container-fluid fondo" style="height: 200px;">
+        <div class="row " style="height: 200px;">           
+        </div>
+    </div>
+</div>
+<div class="averotravez">
+        <div class="alv">
+            <div class="col-12 d-flex align-items-end mb-2">
+                <div class="img-container d-flex justify-content-center sombra" style="margin-right: 25px;">
+                    <img src="https://66.media.tumblr.com/15b82816ecff225d50f899f9417c98b0/aab521d1bd5f501e-5f/s640x960/391dbb4654b3ccf48f6aadebb248500fc94f9811.jpg"
+                        id="imagen">
+                </div>
+                <div class="d-flex flex-column bd-highlight mb-3 tx-clouds">
+                    <div class="p-1 bd-highlight">
+                        <h2>Daniel Torres</h2>
+                    </div>
+                    <div class="p-1 bd-highlight" style="margin-top: -15px;">Admin</div>
+                </div>
+            </div>
+        </div>       
+        <div class="clic" *ngIf="clientec">
+            <div class="return-1">
+                <button class="button type1" id="boton-registrar-atras" (click)=altern()>Registrar-Consultar</button>
+            </div>
+            <div class="reg" *ngIf="alternkey">
+                <app-cliente-registro></app-cliente-registro>
+            </div>
+            <div class="search" *ngIf="!alternkey">
+                <app-cliente-consulta></app-cliente-consulta>
+            </div>
+        </div>
+        <div class="proc" *ngIf="productoc">
+            <app-producto-consulta></app-producto-consulta>
+        </div>
+        <div class="recc" *ngIf="recepcionistac">
+            <app-recepcionista-consulta></app-recepcionista-consulta>
+        </div>
+        <div class="habc" *ngIf="habitacionc">
+            <app-habitacion-consulta></app-habitacion-consulta>
+        </div>
+        <div class="resc" *ngIf="reservasc">
+            <app-reserva-consulta></app-reserva-consulta>
+        </div>
+        <div class="cliRec" *ngIf="clienteRegistroc">
+            <app-cliente-registro></app-cliente-registro>
+        </div>
+</div>
+    
+<div class="text-center" id="nav-wrapper">
+    <nav class="navbar navbar-expand-lg" id="ju">
+        <div class="collapse navbar-collapse" id="ju">
+          <div class="navbar-nav" id="ju">
+            <a class="nav-item nav-link active" (click)=Close()>Inicio</a>
+            <a class="nav-item nav-link active" (click)=changeCliente()>Clientes</a>
+            <a class="nav-item nav-link active" (click)=changeHabitacion() >Habitaciones</a>
+            <a class="nav-item nav-link active" (click)=changeReserva() >Reservas</a>
+            <a class="nav-item nav-link active" (click)=changeProducto()>Productos</a>
+            <a class="nav-item nav-link active" (click)=changeRecepcionista()>Recepcionistas</a>
+          </div>
+        </div>
+    </nav>
+</div>

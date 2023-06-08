@@ -1,0 +1,97 @@
+<div class="body">
+    <div class="return"><br>
+        <div class="return-1">
+            <button class="button type1" id="boton-registrar-atras" [routerLink]="['/habitacionConsulta']">Atrás</button>
+        </div>
+    </div>
+    <div class="container-1">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <br><h5>Actualizar informacion | Eliminar Habitacion</h5><br>
+    
+                <form [formGroup]="formGroup">
+    
+                    <div class="form-group">
+                        <label>Codigo</label>
+                        <input type="text" formControlName="idHabitacion" class="form-control" readonly value={{idn}}
+                            [ngClass]="{ 'is-invalid':  control.idHabitacion.errors }" />
+                        <div *ngIf=" control.idHabitacion.errors" class="invalid-feedback">
+                            <div *ngIf="control.idHabitacion.errors.required">La Codigo es requerido</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipo">Tipo</label>
+                        <select class="custom-select" id="Tipo" formControlName="tipo" class="form-control" value={{_tipo}}
+                            [ngClass]="{'is-invalid':control.tipo.errors}">
+                            <option selected>Seleccionar...</option>                            
+                            <option value="King Doble">King Doble cama</option>
+                            <option value="Sencilla Doble">Sencilla Doble cama</option>
+                            <option value="King">King</option>
+                            <option value="Sencilla">Sencilla</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="precio">precio</label>
+                        <input type="number" name="precio" formControlName="precio" placeholder="digite el precio" value={{_precio}}
+                            class="form-control" [ngClass]="{'is-invalid':control.precio.errors}" />
+    
+                        <div *ngIf="control.precio.errors" class="invalid-feedback">
+                        <div *ngIf="control.precio.errors.required">El precio es requerido</div>
+                        </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>descripcion</label>
+                            <input type="text" formControlName="descripcion" class="form-control" placeholder="describa..." value={{_descripcion}}
+                                [ngClass]="{ 'is-invalid':  control.descripcion.errors }" />
+                            <div *ngIf=" control.descripcion.errors" class="invalid-feedback">
+                                <div *ngIf="control.descripcion.errors.required">Agregue una descripción</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="aire">aire</label>
+                            <select class="custom-select" id="aire" formControlName="aire" class="form-control" value={{_aire}}
+                                [ngClass]="{'is-invalid':control.aire.errors}">
+                                <option selected>Seleccionar...</option>                            
+                                <option value="si">Si</option>
+                                <option value="no">No</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="ventilador">ventilador</label>
+                            <select class="custom-select" id="ventilador" formControlName="ventilador" class="form-control" value={{_ventilador}}
+                                [ngClass]="{'is-invalid':control.ventilador.errors}">
+                                <option selected>Seleccionar...</option>                            
+                                <option value="si">Si</option>
+                                <option value="no">No</option>
+                            </select>
+                          </div>
+    
+                    <div class="text-center">
+                        <button class="btn btn-outline-dark" (click)=" openSm(content)" [disabled]="formGroup.invalid">Actualizar</button>
+
+                        <ng-template #content let-modal>
+                            <div class="modal-header">
+                              <h4 class="modal-title">Modificar Habitacion?</h4>
+                              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <p>seguro que desea modificar a {{idn}}&hellip;</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline-dark" (click)=" onSubmit()" (click)="modal.close('Close click')">Modificar</button>
+                            </div>
+                          </ng-template>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

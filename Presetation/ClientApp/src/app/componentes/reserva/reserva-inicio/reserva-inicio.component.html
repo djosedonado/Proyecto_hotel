@@ -1,0 +1,333 @@
+<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
+<link rel="stylesheet" href="/assets/inicioHotel/css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet" href="/assets/inicioHotel/css/animate.css">
+<link rel="stylesheet" href="/assets/inicioHotel/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/assets/inicioHotel/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="/assets/inicioHotel/css/magnific-popup.css">
+<link rel="stylesheet" href="/assets/inicioHotel/css/aos.css">
+<link rel="stylesheet" href="/assets/inicioHotel/css/ionicons.min.css">
+<link rel="stylesheet" href="/assets/inicioHotel/css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="/assets/inicioHotel/css/jquery.timepicker.css">
+<link rel="stylesheet" href="/assets/inicioHotel/css/flaticon.css">
+<link rel="stylesheet" href="/assets/inicioHotel/css/icomoon.css">
+<link rel="stylesheet" href="/assets/inicioHotel/css/style.css">
+
+<div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Hotel La floresta</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item active"><a class="nav-link">Habitaciones</a></li>
+                    <li class="nav-item"><a [routerLink]="['/login']" class="nav-link">Login</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END nav -->
+
+    <div class="block-30 block-30-sm item" style="background-image: url('/assets/inicioHotel/images/bg_2.jpg');"
+        data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-10">
+                    <span class="subheading-sm">Habitaciones</span>
+                    <h2 class="heading">Habitaciones floresta</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="site-section bg-light">
+        <div class="container" id="htmlData" > 
+            <div class="row mb-5" *ngIf='habitaciones && habitaciones.length'>
+                <div class="col-md-12 mb-5" *ngFor="let habitacion of habitaciones; index as i" >
+                    <div class="block-3 d-md-flex">
+                        <div class="image "  style="background-image: url('/assets/inicioHotel/images/img_1.jpg'); ">
+                        </div>
+                        <div class="text">
+                            <h2 class="heading">{{ habitacion.tipo }}</h2>
+                            <div class="price"><sup>$</sup><span class="number">{{habitacion.precio}}</span><sub>/por noche</sub></div>
+                            <ul class="specs mb-5">
+                                <li><strong>Descripcion: </strong>{{ habitacion.descripcion }}</li>
+                                <li><strong>Tamaño:</strong> 15m<sup>2</sup></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="col-md-4 text-right">
+
+                <!-- <button class="btn btn-success btn-block" (click)="verPDF()">Open PDF</button> -->
+                <!-- <button class="btn btn-danger btn-block" (click)="downloadPDF()">Download PDF</button> -->
+            </div>
+
+            <div class="row mb-5 pt-5 justify-content-center">
+                <div class="col-md-7 text-center section-heading">
+                    <h2 class="heading">Consultar disponibilidad</h2>
+                    <p>El hotel la floresta de la ciudad de valledupar ofrece distintos tipos de habitaciones para que
+                        sus
+                        clientes elijan la que mas les guste ó la que mas se acomode a su presupuesto!... ^-^</p>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    <div id="amos-a-ver" class="container">
+        <!-- aqui van los datapicker con los que tomaremos el rango de las fechas para las habitaciones -->
+            <div class="row mb-5">
+                <div class="col-md-12">
+                    <div class="block-32">
+                        <form action="#">
+                            <div class="row">
+                                <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                                    <label for="checkin">Llegada</label>
+                                    <div class="field-icon-wrap">
+                                        <mat-form-field color="accent">
+                                        <input class="form-control" matInput [matDatepicker]="picker1"
+                                        (dateInput)="addEventInicio('input', $event)">
+                                        <mat-datepicker-toggle class="inputt" matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker1 color="primary"></mat-datepicker>
+                                        </mat-form-field>
+                                    </div>
+                                    </div>
+                                
+                                    <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                                    <label for="checkin">Salida</label>
+                                    <div class="field-icon-wrap">
+                                        <mat-form-field color="accent">
+                                        <input class="form-control" matInput [matDatepicker]="picker2"
+                                        (dateInput)="addEventFin('input', $event)">
+                                        <mat-datepicker-toggle class="inputt" matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker2 color="primary"></mat-datepicker>
+                                        </mat-form-field>
+                                    </div>
+                                    </div>
+                                <div class="col-md-6 col-lg-3 align-self-end">
+                                    <button class="btn btn-primary btn-block"
+                                    (click)="fechaCorrecta()">Disponibilidad</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <div class="site-section bg-light">
+            <div class="container" >
+                <div class="row mb-5" *ngIf='habitacionesDisponibles && habitacionesDisponibles.length'>
+                    <div class="col-md-12 mb-5" *ngFor="let habitacion of habitacionesDisponibles; index as i" >
+                        <div class="block-3 d-md-flex">
+                            <div class="image "  style="background-image: url('/assets/inicioHotel/images/img_1.jpg'); ">
+                            </div>
+                            <div class="text">
+                                <h2 class="heading">{{ habitacion.tipo }}</h2>
+                                <div class="price"><sup>$</sup><span class="number">{{habitacion.precio}}</span><sub>/por noche</sub></div>
+                                <ul class="specs mb-5">
+                                    <li><strong>Descripcion: </strong>{{ habitacion.descripcion }}</li>
+                                    <li><strong>Tamaño:</strong> 15m<sup>2</sup></li>
+                                </ul>
+                                <p><a (click)="pintarInput(habitacion.idHabitacion)" (click)="openScrollableContent(longContent)" class="btn btn-primary py-3 px-5">Reservar</a></p>
+                                <!----------------------------------------------Modal Ver----------------------------------------------->
+                                <ng-template #longContent let-modal>
+                                    <div class="card text-center">
+                                        <div class="modal-header ">
+                                            <div class="card-header card-header-primary" id="pruebaxd">
+                                                <h2 class="card-title modal-title heading text-center">Ver reserva</h2>
+                                                <p class="card-category">Datos del reserva</p>                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="block-3">
+                                            <div class="container-1">                                                        
+                                                <form [formGroup]="formGroup">
+        
+                                                    <div class="form-group">
+                                                        <label><h3 class="card-title modal-title heading text-center">Fecha de Inicio: </h3></label><br>
+                                                        <label> {{prueba1}}</label>
+                                                    </div>
+                        
+                                                    <div class="form-group">
+                                                        <label><h3 class="card-title modal-title heading text-center">Fecha final: </h3></label><br>
+                                                        <label> {{prueba2}}</label>
+                                                    </div>
+
+                                                <div class="form-group">
+                                                    <label><h3 class="card-title modal-title heading text-center">Habitacion: </h3></label><br>
+                                                    <label> {{habitacion.idHabitacion}} - {{habitacion.tipo}}</label>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="cantidadPersonas"><h3 class="card-title modal-title heading text-center">Cantidad de Personas</h3></label>
+                                                    <input type="number" name="cantidadPersonas" formControlName="cantidadPersonas"
+                                                        class="form-control" [ngClass]="{'is-invalid':control.cantidadPersonas.errors}" />
+                                                    <div *ngIf="control.cantidadPersonas.errors" class="invalid-feedback">
+                                                        <div *ngIf="control.cantidadPersonas.errors.required">La cantidad de personas es requerida</div>
+                                                    </div>
+                                                </div>
+        
+                                                <div class="form-group">
+                                                    <label><h3 class="card-title modal-title heading text-center">Identificación del Cliente</h3></label>
+                                                    <div class="input-group">
+                                                        <input type="text" formControlName="idCliente" class="form-control" #idc
+                                                            [ngClass]="{ 'is-invalid':  control.idCliente.errors }" />
+                                                        <div class="input-group-append">
+                                                            <button type="button" class="btn btn-primary" (click)=" tomarValor(idc.value)">Buscar</button>
+                                                        </div>
+                                                    </div>
+                                                    <div *ngIf=" control.idCliente.errors" class="invalid-feedback">
+                                                        <div *ngIf="control.idCliente.errors.required">La Identificación del cliente es requerida</div>
+                                                    </div>
+                                                </div><br>
+                                                </form>
+                                            </div>
+                                            <div class="clie" *ngIf="clienteR">
+                                                <app-cliente-registro></app-cliente-registro>
+                                            </div><br>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer text-center">
+                                        <div class="text-center">
+                                            <button class="btn btn-primary" (click)=" openSm(content)" 
+                                                [disabled]="formGroup.invalid">Registrar Reserva</button>
+
+                                                <!-----------------------este modal es quien confirma la edicion------------------------>
+                                                <ng-template #content let-modal>
+                                                    <div class="card">
+                                                    <div class="modal-header">
+                                                        <div class="card-header card-header-primary" id="pruebaxd">
+                                                            <h2 class="card-title modal-title heading text-center">Registrar reserva?</h2>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>seguro que desea Resgistrar esta reserva?&hellip;</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-outline-dark" (click)=" onSubmit()" (click)="modal.close('Close click')">Reservar</button>
+                                                    </div>
+                                                </ng-template>
+                                                <!-----------------------este modal es quien confirma la edicion------------------------>    
+                                        </div>
+                                    </div>                                    
+                                </ng-template>
+                                <!--------------------------------------------Fin modal ver--------------------------------------------->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- aqui finalizan los datapicker con los que tomaremos el rango de las fechas para las habitaciones -->
+    </div>
+
+    <div class="block-22">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-7 text-center">
+                    <h2 class="heading mb-4">Para recibir promociones futuras.</h2>
+                    <form action="#" class="subscribe">
+                        <div class="form-group">
+                            <input type="email" class="form-control email" placeholder="Introduce tu direccion de correo">
+                            <!-- <input type="submit" class="btn btn-primary submit"> -->
+                            <button type="submit" class="btn btn-primary submit">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-6 col-lg-4">
+                <h3 class="heading-section">Sobre nosotros</h3>
+                <p class="mb-5">Somos un hotel que intenta brindar la mayor comodidad disponible para nuestros clientes, 
+                    para esto contamos con las instalaciones adecuadas y con un servicio amable que inspira confianza
+                    a nuestros visitantes, estamos ubicados en la ciudad de valledupar no dudes en visitarnos. <br>
+                    ¡ Hotel la floresta ! :D
+                </p>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <h3 class="heading-section">Relacionados</h3>
+                <div class="block-21 d-flex mb-4">
+                    <figure class="mr-3">
+                        <img src="/assets/inicioHotel/images/img_1.jpg" alt="" class="img-fluid">
+                    </figure>
+                    <div class="text">
+                        <h3 class="heading"><a href="#">Hotel la floresta</a></h3>
+                        <div class="meta">
+                            <div><a href="#"><span class="icon-chat"></span> Facebook</a></div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block-21 d-flex mb-4">
+                    <figure class="mr-3">
+                        <img src="/assets/inicioHotel/images/img_2.jpg" alt="" class="img-fluid">
+                    </figure>
+                    <div class="text">
+                        <h3 class="heading"><a href="#">@Hotel_La_Floresta</a></h3>
+                        <div class="meta">
+                            <div><a href="#"><span class="icon-chat"></span> Instagram</a></div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block-21 d-flex mb-4">
+                    <figure class="mr-3">
+                        <img src="/assets/inicioHotel/images/img_3.jpg" alt="" class="img-fluid">
+                    </figure>
+                    <div class="text">
+                        <h3 class="heading"><a href="#">@LaFlorestaHotel</a></h3>
+                        <div class="meta">
+                            <div><a href="#"><span class="icon-chat"></span> Twiter</a></div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="block-23">
+                    <h3 class="heading-section">Informacion de contacto</h3>
+                    <ul>
+                        <li><span class="icon icon-map-marker"></span><span class="text">Calle 13 # 13-44 barrio 12 de
+                                octubre.
+                                valledupar-cesar</span></li>
+                        <li><a href="#"><span class="icon icon-phone"></span><span class="text">+57 313 538 21
+                                    74</span></a></li>
+                        <li><a href="#"><span class="icon icon-envelope"></span><span
+                                    class="text">HotelLaFloresta@gmail.com</span></a></li>
+                        <li><span class="icon icon-clock-o"></span><span class="text">Lunes &mdash; Viernes 8:00am -
+                                5:00pm</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="col-md-12 text-left">
+                <p>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy; 2020 Derechos reservados <i class="icon-heart" aria-hidden="true"></i> por <a
+                        href="#" target="_blank" class="text-primary">danmatora-remembernoob</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- loader 
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+-->
+

@@ -1,0 +1,142 @@
+<div class="body">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header card-header-primary text-center">
+                <h4 class="card-title ">Informacion personal</h4>
+                <p class="card-category">Formulario de actualizacion de datos del cliente {{_nombre}}</p>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="formGroup">                
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-3"><label>Identificación</label> </div>
+                            <div class="col-sm-9"><input type="text" formControlName="identificacion" class="form-control" readonly value={{sisepuede}}
+                                [ngClass]="{ 'is-invalid':  control.identificacion.errors }" />
+                                <div *ngIf=" control.identificacion.errors" class="invalid-feedback">
+                                    <div *ngIf="control.identificacion.errors.required">La Identificación es requerido</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-3"><label>Nombre:</label></div>
+                            <div class="col-sm-9"><input type="text" formControlName="nombre" class="form-control" value= {{_nombre}}
+                                [ngClass]="{ 'is-invalid':  control.nombre.errors }" />
+                                <div *ngIf=" control.nombre.errors" class="invalid-feedback">
+                                    <div *ngIf="control.nombre.errors.required">El nombre es requerido</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-3"><label for="edad">edad</label></div>
+                            <div class="col-sm-9"><input type="number" name="edad" formControlName="edad" value={{_edad}}
+                                class="form-control" [ngClass]="{'is-invalid':control.edad.errors}" />
+                               <div *ngIf="control.edad.errors" class="invalid-feedback">
+                                   <div *ngIf="control.edad.errors.required">La edad es requerida</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-3"><label>Sexo</label></div>
+                            <div class="col-sm-9"><input type="text" formControlName="sexo" class="form-control" value={{_sexo}}
+                                [ngClass]="{ 'is-invalid':  control.sexo.errors }" />
+                                <div *ngIf=" control.sexo.errors" class="invalid-feedback">
+                                    <div *ngIf="control.sexo.errors.required">El sexo es requerido</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-3"><label>Direccion</label></div>
+                            <div class="col-sm-9"><input type="text" formControlName="direccion" class="form-control" value={{_direccion}}
+                                    [ngClass]="{ 'is-invalid':  control.direccion.errors }" />
+                                <div *ngIf=" control.direccion.errors" class="invalid-feedback">
+                                    <div *ngIf="control.direccion.errors.required">La direccion es requerido</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-3"><label>Celular</label></div>
+                            <div class="col-sm-9"><input type="text" formControlName="celular" class="form-control" value={{_celular}}
+                                [ngClass]="{ 'is-invalid':  control.celular.errors }" />
+                                <div *ngIf=" control.celular.errors" class="invalid-feedback">
+                                    <div *ngIf="control.celular.errors.required">El celular es requerido</div>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+            
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-3"><label>Correo</label></div>
+                            <div class="col-sm-9">
+                                <input type="text" formControlName="correo" class="form-control" value={{_correo}}
+                                    [ngClass]="{ 'is-invalid':  control.correo.errors }" />
+                                <div *ngIf=" control.correo.errors" class="invalid-feedback">
+                                    <div *ngIf="control.correo.errors.required">El correo es requerido</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-3"><label>Usuario</label></div>
+                            <div class="col-sm-9"><input type="text" formControlName="usuario" class="form-control" readonly value={{_usuario}}
+                                    [ngClass]="{ 'is-invalid':  control.usuario.errors }" />
+                                <div *ngIf=" control.usuario.errors" class="invalid-feedback">
+                                    <div *ngIf="control.usuario.errors.required">El usuario es requerido</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-3"><label>Contraseña:</label></div>
+                            <div class="col-sm-9"><input type="password" formControlName="password" class="form-control"
+                                [ngClass]="{ 'is-invalid':  control.password.errors }" />
+                                <div *ngIf=" control.password.errors" class="invalid-feedback">
+                                    <div *ngIf="control.password.errors.required">La contraseña es requerida</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="text-center">
+                        <button class="btn btn-outline-dark" (click)=" openSm(content)"
+                            [disabled]="formGroup.invalid">Actualizar</button>
+                        
+                            <ng-template #content let-modal>
+                                <div class="modal-header">
+                                  <h4 class="modal-title">Modificar cliente?</h4>
+                                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <p>seguro que desea modificar a {{idn}}&hellip;</p>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-outline-dark" (click)=" onSubmit()" (click)="modal.close('Close click')">Modificar</button>
+                                </div>
+                              </ng-template>    
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>  

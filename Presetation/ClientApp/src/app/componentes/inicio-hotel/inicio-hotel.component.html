@@ -1,0 +1,445 @@
+<div>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/inicioHotel/css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/inicioHotel/css/animate.css">
+  <link rel="stylesheet" href="/assets/inicioHotel/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="/assets/inicioHotel/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/assets/inicioHotel/css/magnific-popup.css">
+  <link rel="stylesheet" href="/assets/inicioHotel/css/aos.css">
+  <link rel="stylesheet" href="/assets/inicioHotel/css/ionicons.min.css">
+  <link rel="stylesheet" href="/assets/inicioHotel/css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="/assets/inicioHotel/css/jquery.timepicker.css">
+  <link rel="stylesheet" href="/assets/inicioHotel/css/flaticon.css">
+  <link rel="stylesheet" href="/assets/inicioHotel/css/icomoon.css">
+  <link rel="stylesheet" href="/assets/inicioHotel/css/style.css">
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="#">Hotel la floresta - {{fechaprueba}}</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active"><a  class="nav-link">Home</a></li>
+          <li class="nav-item active"><a (click)=RedirigirReserva() class="nav-link">Habitaciones</a></li>
+          <li class="nav-item active"><a (click)=RedirigirLogin() class="nav-link">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- END nav -->
+
+  <div class="block-31" style="position: relative;">
+    <div class="owl-carousel loop-block-31 ">
+      <div class="block-30 item" style="background-image: url('/assets/inicioHotel/images/bg_2.jpg');"
+        data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-10">
+              <span class="subheading-sm">Bienvenido</span>
+              <h2 class="heading">Hotel la floresta</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block-30 item" style="background-image: url('/assets/inicioHotel/images/bg_1.jpg');"
+        data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-10">
+              <span class="subheading-sm">Bienvenido</span>
+              <h2 class="heading">Simple &amp; Elegante</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-md-12">
+        <!--<div class="block-32">
+          <form action="#">
+             <div class="row"> 
+              <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                <label for="checkin">Llegada</label>
+                <div class="field-icon-wrap">
+                  <mat-form-field color="accent">
+                    <input class="form-control" matInput [matDatepicker]="picker1">
+                    <mat-datepicker-toggle class="inputt" matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1 color="primary"></mat-datepicker>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                <label for="checkin">Salida</label>
+                <div class="field-icon-wrap">
+                  <mat-form-field color="accent">
+                    <input class="form-control" matInput [matDatepicker]="picker2">
+                    <mat-datepicker-toggle class="inputt" matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2 color="primary"></mat-datepicker>
+                  </mat-form-field>
+                </div>
+              </div>
+             
+             <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
+                <div class="row">
+                  <div class="col-md-6 mb-3 mb-md-0">
+                    <label for="checkin">Adultos</label>
+                    <div class="field-icon-wrap">
+                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                      <select name="" id="" class="form-control">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4+</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-6 col-lg-3 align-self-end">
+                <button class="btn btn-primary btn-block">Disponibilidad</button>
+              </div>  
+            </div>
+          </form>
+        </div> -->
+      </div>
+    </div>
+
+    <div class="row site-section">
+      <div class="col-md-12">
+        <div class="row mb-5">
+          <div class="col-md-7 section-heading">
+            <span class="subheading-sm">Algunos Servicios</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="media block-6">
+          <div class="icon"><span class="flaticon-double-bed"></span></div>
+          <div class="media-body">
+            <h3 class="heading">Habitaciones floresta</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="media block-6">
+          <div class="icon"><span class="flaticon-wifi"></span></div>
+          <div class="media-body">
+            <h3 class="heading">Wifi &amp; rapido gratis</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="media block-6">
+          <div class="icon"><span class="flaticon-customer-service"></span></div>
+          <div class="media-body">
+            <h3 class="heading">Llamadas 24/7</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-section block-13 bg-light">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-7 section-heading">
+          <span class="subheading-sm">Habitaciones</span>
+          <h2 class="heading">Nuestras habitaciones</h2>
+          <p>El hotel la floresta de la ciudad de valledupar ofrece distintos tipos de habitaciones 
+            para que sus clientes elijan la que mas les guste ó la que mas se acomode a su presupuesto!... ^-^</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="nonloop-block-13 owl-carousel">
+            <div class="item">
+              <div class="block-34">
+                <div class="image">
+                  <a href="#"><img src="/assets/inicioHotel/images/img_1.jpg" alt="Image placeholder"></a>
+                </div>
+                <div class="text">
+                  <h2 class="heading">Habitacion de soltero</h2>
+                  <div class="price"><sup>$</sup><span class="number">80k</span><sub>/por noche</sub></div>
+                  <ul class="specs mb-5">
+                    <li><strong>Adultos:</strong> 1</li>
+                    <li><strong>Instalaciones:</strong> Armario con perchas, TV de pantalla plana de alta
+                      definición, Teléfono</li>
+                    <li><strong>Tamaño:</strong> 15m<sup>2</sup></li>
+                    <li><strong>Tipo de cama:</strong> Una cama</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="block-34">
+                <div class="image">
+                  <a href="#"><img src="/assets/inicioHotel/images/img_2.jpg" alt="Image placeholder"></a>
+                </div>
+                <div class="text">
+                  <h2 class="heading">Habitacion para pareja</h2>
+                  <div class="price"><sup>$</sup><span class="number">90k</span><sub>/por noche</sub></div>
+                  <ul class="specs mb-5">
+                    <li><strong>Adultos:</strong> 2</li>
+                    <li><strong>Instalaciones:</strong> Armario con perchas, TV de pantalla plana de alta
+                      definición, Teléfono</li>
+                    <li><strong>Tamaño:</strong> 15m<sup>2</sup></li>
+                    <li><strong>Tipo de cama:</strong> Una cama</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="block-34">
+                <div class="image">
+                  <a href="#"><img src="/assets/inicioHotel/images/img_3.jpg" alt="Image placeholder"></a>
+                </div>
+                <div class="text">
+                  <h2 class="heading">Habitacion doble</h2>
+                  <div class="price"><sup>$</sup><span class="number">130k</span><sub>/por noche</sub></div>
+                  <ul class="specs mb-5">
+                    <li><strong>Adultos:</strong> 2</li>
+                    <li><strong>Instalaciones:</strong> Armario con perchas, TV de pantalla plana de alta
+                      definición, Teléfono</li>
+                    <li><strong>Tamaño:</strong> 20m<sup>2</sup></li>
+                    <li><strong>Tipo de cama:</strong> 2 camas</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="block-34">
+                <div class="image">
+                  <a href="#"><img src="/assets/inicioHotel/images/img_4.jpg" alt="Image placeholder"></a>
+                </div>
+                <div class="text">
+                  <h2 class="heading">Habitacion tiple</h2>
+                  <div class="price"><sup>$</sup><span class="number">140k</span><sub>/por noche</sub></div>
+                  <ul class="specs mb-5">
+                    <li><strong>Adultos:</strong> 3</li>
+                    <li><strong>Instalaciones:</strong> Armario con perchas, TV de pantalla plana de alta
+                      definición, Teléfono</li>
+                    <li><strong>Tamaño:</strong> 20m<sup>2</sup></li>
+                    <li><strong>Tipo de cama:</strong> 3 camas</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="block-34">
+                <div class="image">
+                  <a href="#"><img src="/assets/inicioHotel/images/img_5.jpg" alt="Image placeholder"></a>
+                </div>
+                <div class="text">
+                  <h2 class="heading">Habitacion simple+</h2>
+                  <div class="price"><sup>$</sup><span class="number">85k</span><sub>/por noche</sub></div>
+                  <ul class="specs mb-5">
+                    <li><strong>Adultos:</strong> 1</li>
+                    <li><strong>Instalaciones:</strong> Armario con perchas, TV de pantalla plana de alta
+                      definición, Teléfono</li>
+                    <li><strong>Tamaño:</strong> 15m<sup>2</sup></li>
+                    <li><strong>Tipo de cama:</strong> 1 cama doble</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="block-34">
+                <div class="image">
+                  <a href="#"><img src="/assets/inicioHotel/images/img_6.jpg" alt="Image placeholder"></a>
+                </div>
+                <div class="text">
+                  <h2 class="heading">Habitacion ligth</h2>
+                  <div class="price"><sup>$</sup><span class="number">50k</span><sub>/por noche</sub></div>
+                  <ul class="specs mb-5">
+                    <li><strong>Adultos:</strong> 1</li>
+                    <li><strong>Instalaciones:</strong>TV clasi, Teléfono</li>
+                    <li><strong>Tamaño:</strong> 10m<sup>2</sup></li>
+                    <li><strong>Tipo de cama:</strong> Una cama sencilla</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div> <!-- .col-md-12 -->
+      </div>
+    </div>
+  </div>
+  <!--
+  <div class="site-section bg-light">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-7 section-heading">
+          <span class="subheading-sm">Comentarios</span>
+          <h2 class="heading">Comentarios de clientes</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-4">
+
+          <div class="block-33">
+            <div class="vcard d-flex mb-3">
+              <div class="image align-self-center"><img src="/assets/inicioHotel/images/person_3.jpg" alt="Person here">
+              </div>
+              <div class="name-text align-self-center">
+                <h2 class="heading">Martin Newmansfield</h2>
+                <span class="meta">Satisfied Customer</span>
+              </div>
+            </div>
+            <div class="text">
+              <blockquote>
+                <p>&rdquo; Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga aliquid. Atque dolore esse
+                  veritatis iusto eaque perferendis non dolorem fugiat voluptatibus vitae error ad itaque inventore
+                  accusantium tempore dolores sunt. &ldquo;</p>
+              </blockquote>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-6 col-lg-4">
+
+          <div class="block-33">
+            <div class="vcard d-flex mb-3">
+              <div class="image align-self-center"><img src="/assets/inicioHotel/images/person_2.jpg" alt="Person here">
+              </div>
+              <div class="name-text align-self-center">
+                <h2 class="heading">Nancy Green</h2>
+                <span class="meta">Satisfied Customer</span>
+              </div>
+            </div>
+            <div class="text">
+              <blockquote>
+                <p>&rdquo; Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga aliquid. Atque dolore esse
+                  veritatis iusto eaque perferendis non dolorem fugiat voluptatibus vitae error ad itaque inventore
+                  accusantium tempore dolores sunt. &ldquo;</p>
+              </blockquote>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-6 col-lg-4">
+
+          <div class="block-33">
+            <div class="vcard d-flex mb-3">
+              <div class="image align-self-center"><img src="/assets/inicioHotel/images/person_1.jpg" alt="Person here">
+              </div>
+              <div class="name-text align-self-center">
+                <h2 class="heading">Elizabeth Charles</h2>
+                <span class="meta">Satisfied Customer</span>
+              </div>
+            </div>
+            <div class="text">
+              <blockquote>
+                <p>&rdquo; Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga aliquid. Atque dolore esse
+                  veritatis iusto eaque perferendis non dolorem fugiat voluptatibus vitae error ad itaque inventore
+                  accusantium tempore dolores sunt. &ldquo;</p>
+              </blockquote>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+-->
+  <footer class="footer">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-6 col-lg-4">
+          <h3 class="heading-section">Inf</h3>
+          <p class="mb-5">Muchas gracias por visitar nuestra pagina. <br>:)</p>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <h3 class="heading-section">Relacionados</h3>
+          <div class="block-21 d-flex mb-4">
+            <figure class="mr-3">
+              <img src="/assets/inicioHotel/images/img_1.jpg" alt="" class="img-fluid">
+            </figure>
+            <div class="text">
+              <h3 class="heading"><a href="#">Hotel cairo</a></h3>
+              <div class="meta">
+                <div><a href="#"><span class="icon-calendar"></span> junio 06, 2020</a></div>
+                <div><a href="#"><span class="icon-person"></span> remembernoob</a></div>
+                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="block-21 d-flex mb-4">
+            <figure class="mr-3">
+              <img src="/assets/inicioHotel/images/img_2.jpg" alt="" class="img-fluid">
+            </figure>
+            <div class="text">
+              <h3 class="heading"><a href="#"> Hotel &amp; Restaurante chamos </a></h3>
+              <div class="meta">
+                <div><a href="#"><span class="icon-calendar"></span> junio 06, 2020</a></div>
+                <div><a href="#"><span class="icon-person"></span> DanMaTor</a></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="block-21 d-flex mb-4">
+            <figure class="mr-3">
+              <img src="/assets/inicioHotel/images/img_3.jpg" alt="" class="img-fluid">
+            </figure>
+            <div class="text">
+              <h3 class="heading"><a href="#">Hotel castros</a></h3>
+              <div class="meta">
+                <div><a href="#"><span class="icon-calendar"></span> junio 06, 2020</a></div>
+                <div><a href="#"><span class="icon-person"></span> DanMaTor-remembernoob</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="block-23">
+            <h3 class="heading-section">Informacion de contacto</h3>
+            <ul>
+              <li><span class="icon icon-map-marker"></span><span class="text">Calle 13 # 13-44 barrio 12 de octubre,
+                  valledupar-cesar</span></li>
+              <li><a href="#"><span class="icon icon-phone"></span><span class="text">+57 313 538 21 74</span></a></li>
+              <li><a href="#"><span class="icon icon-envelope"></span><span
+                    class="text">HotelLaFloresta@gmail.com</span></a></li>
+              <li><span class="icon icon-clock-o"></span><span class="text">Lunes &mdash; Viernes 8:00am - 5:00pm</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row pt-5">
+        <div class="col-md-12 text-left">
+          <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy; 2020 Derechos reservados <i class="icon-heart" aria-hidden="true"></i> por <a href="#"
+              target="_blank" class="text-primary">daantoma-remembernoob</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+<!-- loader
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+ -->

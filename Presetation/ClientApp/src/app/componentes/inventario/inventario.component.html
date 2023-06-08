@@ -1,0 +1,47 @@
+<div>
+    <div>
+        <div><br>
+            <div>
+                <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Identificacion de producto">
+            </div>
+        </div><br>
+
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-primary">
+                    <h4 class="card-title ">Inventario</h4>
+                    <p class="card-category">Productos comprados en el hotel la floresta</p>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table" *ngIf='inventarios && inventarios.length'>
+                            <thead>
+                                <tr>
+                                    <th class="text-center" scope="col">Codigo Producto</th>
+                                    <th class="text-center" scope="col">Fecha </th>
+                                    <th class="text-center" scope="col">Costo</th>
+                                    <th class="text-center" scope="col">IdProducto</th>
+                                    <th class="text-center" scope="col">Cantidad comprada</th>
+                                    <th class="text-center" scope="col">TotalCompra</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let inventario of inventarios|filtroCliente:searchText; index as i">
+                                    <td class="text-center">{{ inventario.idInventario }} </td>
+                                    <td class="text-center">{{ inventario.fechaCompra }}</td>
+                                    <td class="text-center">{{ inventario.costoProducto }}</td>
+                                    <td class="text-center">{{ inventario.idProducto }}</td>
+                                    <td class="text-center">{{ inventario.cantidadComprada }}</td>
+                                    <td class="text-center">{{ inventario.totalCompra }}</td>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Fin de la tabla-->
+    </div>
+</div>

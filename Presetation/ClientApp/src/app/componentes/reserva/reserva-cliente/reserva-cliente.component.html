@@ -1,0 +1,157 @@
+<div>
+    <div>
+        <div><br>
+            <div>
+                <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Consulta aquí...">
+            </div>
+        </div><br>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-primary">
+                    <h4 class="card-title ">Reservas</h4>
+                    <p class="card-category">Reservas registradas en el hotel la floresta</p>
+                </div>
+                <div  class="card-body">
+                    <div class="table-responsive">
+                        <table class="table " *ngIf='reservas && reservas.length'>
+                            <thead>
+                                <tr>
+                                    <th class="text-center" scope="col">Codigo</th>
+                                    <th class="text-center" scope="col">Fecha de inicio </th>
+                                    <th class="text-center" scope="col">Fecha fin</th>
+                                    <th class="text-center" scope="col">Cantidad personas</th>
+                                    <th class="text-center" scope="col">Cliente</th>
+                                    <th class="text-center" scope="col">Habitacion</th>
+                                    <th class="text-center" scope="col">Ver</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let reserva of reservas|filtroReserva:searchText; index as i">
+                                    <td class="text-center" >{{ reserva.idReserva }} </td>
+                                    <td class="text-center" >{{ reserva.fechaInicio }}</td>
+                                    <td class="text-center" >{{ reserva.fechaFin }}</td>
+                                    <td class="text-center" >{{ reserva.cantidadPersonas }}</td>
+                                    <td class="text-center" >{{ reserva.idCliente }}</td>
+                                    <td class="text-center" >{{ reserva.idHabitacion }}</td>
+                                    <td class="text-center"><i class="material-icons"
+                                        (click)="openScrollableContent(longContent)" 
+                                        (click)="consultaId(reserva.idReserva)" >visibility</i></td>
+  
+                    <!----------------------------------------------Modal Ver----------------------------------------------->
+                    <ng-template #longContent let-modal>
+                      <div class="card">
+                        <div class="modal-header">
+                            <div class="card-header card-header-primary" id="pruebaxd">
+                              <h4 class="card-title heading text-center">Ver reserva</h4>
+                              <p class="card-category heading text-center">Datos del la reserva {{reserva.idReserva}}</p>
+                          </div>
+                          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="modal-body">
+                        <div class="container-1">
+                                          
+                          <form [formGroup]="formGroup">
+          
+                              <div class="form-group">
+                                  <label>Codigo Reserva</label>
+                                  <input type="text" formControlName="idReserva" class="form-control"  readonly value={{idn}}
+                                      [ngClass]="{ 'is-invalid':  control.idReserva.errors }" />
+                                  <div *ngIf=" control.idReserva.errors" class="invalid-feedback">
+                                      <div *ngIf="control.idReserva.errors.required">este codigo es requerido</div>
+                                  </div>
+                              </div>
+        
+                              <div class="form-group">
+                                  <label>Identificación del Cliente</label>
+                                  <input type="text" formControlName="idCliente" class="form-control" readonly value="{{_idCliente}}"
+                                      [ngClass]="{ 'is-invalid':  control.idCliente.errors }" />
+                              </div>
+
+                              <div class="form-group">
+                                <label>Fecha de Inicio</label>
+                                <div class="datapicker">
+                                    <input formControlName="fechaInicio" class="form-control" type="datetime-local" value="{{_fechaInicio}}"
+                                        placeholder="yyyy-mm-dd" id="dateOfBirth"
+                                        [ngClass]="{ 'is-invalid':  control.fechaInicio.errors }">
+                                </div>
+                                <div *ngIf=" control.fechaInicio.errors" class="invalid-feedback">
+                                    <div *ngIf="control.fechaInicio.errors.required">La fecha de inicio es requerido</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Fecha fin</label>
+                                <div class="datapicker">
+                                    <input formControlName="fechaFin" class="form-control" type="datetime-local" value="{{_fechaFin}}"
+                                        placeholder="yyyy-mm-dd" id="dateOfBirth"
+                                        [ngClass]="{ 'is-invalid':  control.fechaFin.errors }">
+                                </div>
+                                <div *ngIf=" control.fechaFin.errors" class="invalid-feedback">
+                                    <div *ngIf="control.fechaFin.errors.required">La fecha final es requerida</div>
+                                </div>
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="cantidadPersonas">Cantidad de Personas</label>
+                                <input type="number" name="cantidadPersonas" formControlName="cantidadPersonas" value="{{_cantidadPersonas}}"
+                                    class="form-control" [ngClass]="{'is-invalid':control.cantidadPersonas.errors}" />
+                                <div *ngIf="control.cantidadPersonas.errors" class="invalid-feedback">
+                                    <div *ngIf="control.cantidadPersonas.errors.required">La cantidad de personas es requerida</div>
+                                </div>
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="idHabitacion">Habitacion</label>
+                                <select class="custom-select" id="idHabitacion" formControlName="idHabitacion" value="{{_idHabitacion}}"
+                                    class="form-control" [ngClass]="{'is-invalid':control.idHabitacion.errors}">
+                                    <option selected></option>
+                                    <option *ngFor="let habitacion of habitaciones" value={{habitacion.idHabitacion}}>
+                                        {{habitacion.idHabitacion}}</option>
+                                </select>
+                                <div *ngIf="control.idHabitacion.errors" class="invalid-feedback">
+                                    <div *ngIf="control.idHabitacion.errors.required">La habitacion es requerida</div>
+                                </div>
+                            </div>      
+                              
+                            <div class="text-center">
+                                <button class="btn btn-outline-dark" (click)=" openSm(content)"
+                                    [disabled]="formGroup.invalid">Actualizar</button>
+  
+                                    <!-----------------------este modal es quien confirma la edicion------------------------>
+                                    <ng-template #content let-modal>
+                                      <div class="card">
+                                        <div class="modal-header">
+                                            <div class="card-header card-header-primary" id="pruebaxd">
+                                              <h4 class="card-title ">Modificar reserva?</h4>
+                                          </div>
+                                          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                      </div>
+                                        <div class="modal-body">
+                                          <p>seguro que desea modificar a {{idn}}&hellip;</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-outline-dark" (click)=" onSubmit()" (click)="modal.close('Close click')">Modificar</button>
+                                        </div>
+                                    </ng-template>
+                                    <!-----------------------este modal es quien confirma la edicion------------------------>    
+                              </div>
+                          </form>
+                          </div>
+                        </div>
+                      </ng-template>
+                    <!--------------------------------------------Fin modal ver--------------------------------------------->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+</div>

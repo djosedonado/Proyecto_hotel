@@ -1,0 +1,69 @@
+<div class="body">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title ">Registro</h4>
+                <p class="card-category">Formulario de registro de Productos</p>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="formGroup">
+
+                    <div class="form-group">
+                        <label>Codigo Producto</label>
+                        <input type="text" formControlName="idProducto" class="form-control"
+                            [ngClass]="{ 'is-invalid':  control.idProducto.errors }" />
+                        <div *ngIf=" control.idProducto.errors" class="invalid-feedback">
+                            <div *ngIf="control.idProducto.errors.required">El codigo es requerido</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" formControlName="nombre" class="form-control"
+                            [ngClass]="{ 'is-invalid':  control.nombre.errors }" />
+                        <div *ngIf=" control.nombre.errors" class="invalid-feedback">
+                            <div *ngIf="control.nombre.errors.required">El nombre es requerido</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tipo</label>
+                        <input type="text" formControlName="tipo" class="form-control"
+                            [ngClass]="{ 'is-invalid':  control.tipo.errors }" />
+                        <div *ngIf=" control.tipo.errors" class="invalid-feedback">
+                            <div *ngIf="control.tipo.errors.required">El tipo es requerido</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="precio">Precio</label>
+                        <input type="number" name="precio" formControlName="precio"
+                            class="form-control" [ngClass]="{'is-invalid':control.precio.errors}" />
+
+                        <div *ngIf="control.precio.errors" class="invalid-feedback">
+                            <div *ngIf="control.precio.errors.required">El precio es requerido</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cantidad">Cantidad</label>
+                        <input type="number" name="cantidad" formControlName="cantidad"
+                            class="form-control" [ngClass]="{'is-invalid':control.cantidad.errors}" />
+
+                        <div *ngIf="control.cantidad.errors" class="invalid-feedback">
+                            <div *ngIf="control.cantidad.errors.required">La cantidad es requerido</div>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button class="btn btn-outline-dark" (click)=" onSubmit()"
+                            [disabled]="formGroup.invalid">Registrar</button>
+                        <label> - </label>
+                        <button class="btn btn-outline-dark" type="reset">Limpiar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

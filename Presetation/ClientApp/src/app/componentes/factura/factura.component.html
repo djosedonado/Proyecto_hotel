@@ -1,0 +1,101 @@
+<div>
+    <div><label>Total facturado: {{totalFacturas}}</label>
+        <div><br>
+            <div>
+                <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Filtrar">
+            </div>
+        </div><br>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-primary">
+                    <h4 class="card-title ">Facturas</h4>
+                    <p class="card-category">Facturas registradas en el hotel la floresta</p>
+                </div>
+                <div  class="card-body">
+                    <div class="table-responsive">
+                        <table class="table " *ngIf='facturas && facturas.length'>
+                            <thead>
+                                <tr>
+                                    <th class="text-center" scope="col">Codigo factura</th>
+                                    <th class="text-center" scope="col">Código de reserva</th>
+                                    <th class="text-center" scope="col">Total</th>
+                                    <th class="text-center" scope="col">Ver</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let factura of facturas|filtroFactura:searchText; index as i">
+                                    <td class="text-center" >{{ factura.idFactura }} </td>
+                                    <td class="text-center" >{{ factura.idReserva }}</td>
+                                    <td class="text-center" >{{ factura.total }}</td>
+                                    <td class="text-center"><i class="material-icons"
+                                        (click)="openScrollableContent(longContent)" 
+                                        (click)="consultarId(factura.idFactura)" >visibility</i></td>
+  
+                    <!----------------------------------------------Modal Ver----------------------------------------------->
+                    <ng-template #longContent let-modal>
+                        <div id="htmlData">
+                            <div class="card">
+                                <div class="modal-header">
+                                    <div class="card-header card-header-primary" id="pruebaxd">
+                                    <h4 class="card-title heading text-center">Ver factura</h4>
+                                    <p class="card-category heading text-center">Datos del la factura {{factura.idFactura}}</p>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-1">
+                                    <div class="row">
+                                        <div class="col-sm-10">Código factura:  </div>
+                                        <div class="col-sm-2">{{_idFactura}}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">Identificación de cliente:</div>
+                                        <div class="col-sm-2">{{_idCliente}}</div>                                    
+                                        <div class="col-sm-4">Nombre completo: </div>
+                                        <div class="col-sm-2">{{_nombre}}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">Código reserva:</div>
+                                        <div class="col-sm-2">{{_idReserva}}</div>                                    
+                                        <div class="col-sm-4">Días reservados:  </div>
+                                        <div class="col-sm-2">{{_dias}}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">Fecha de inicio:</div>
+                                        <div class="col-sm-2">{{_fechaI}}</div>                                    
+                                        <div class="col-sm-4">Fecha fin:</div>
+                                        <div class="col-sm-2">{{_fechaF}}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">Código de habitación:</div>
+                                        <div class="col-sm-2">{{_idHabitacion}}</div>                                    
+                                        <div class="col-sm-4">Tipo de habitación:</div>
+                                        <div class="col-sm-2">{{_tipo}}</div>
+
+                                        <!-- Force next columns to break to new line -->
+                                        <div class="w-100"></div>
+
+                                        <div class="col-sm-10">Valor por día:</div>
+                                        <div class="col-sm-2">{{_precio}}</div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col-sm-10">Total factura:  </div>
+                                        <div class="col-sm-2">${{_total}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-outline-dark"  (click)="downloadPDF(_idFactura)">Descargar</button>   
+                        </div>
+                    </ng-template>
+                    <!--------------------------------------------Fin modal ver--------------------------------------------->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+</div>

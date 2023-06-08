@@ -1,0 +1,66 @@
+.body{
+    margin: auto;
+    position: relative;
+    width: 95%;
+    height: 100%;
+    background-size: cover;
+    padding-bottom: 5%;
+    background-repeat: no-repeat;
+    border-radius:10px;
+}
+
+.return{
+    margin: auto;
+}
+
+.return-1{
+    text-align: center;
+}
+
+.button{position:relative;padding:1em 1.5em;border:none;background-color:transparent;cursor:pointer;outline:0;font-size:18px;}
+ .button.type1{color:#fff; }
+ .button.type1.type1::after,.button.type1.type1::before{content:"";display:block;position:absolute;width:20%;height:20%;border:2px solid;transition:all .6s ease;border-radius:1px}
+ .button.type1.type1::after{bottom:0;right:0;border-color:transparent #fff #fff transparent}
+ .button.type1.type1::before{top:0;left:0;border-color:#fff transparent transparent #fff}
+ .button.type1.type1:hover:after,.button.type1.type1:hover:before{width:100%;height:100%}
+
+ #boton-registrar-atras{
+     width: 48%;
+ }
+
+ .table{
+     border-radius: 1%;
+ }
+
+ #pruebaxd{
+     width: 100%;
+ }
+
+ .container-1{
+    width: 80%;
+    margin: auto;
+    border-radius: 2%;
+    background: rgba(255,255,255,0.90);
+    background: -moz-linear-gradient(left, rgba(255,255,255,0.90) 0%, rgba(255,255,255,0.90) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,0.90)), color-stop(100%, rgba(255,255,255,0.90)));
+    background: -webkit-linear-gradient(left, rgba(255,255,255,0.90) 0%, rgba(255,255,255,0.90) 100%);
+    background: -o-linear-gradient(left, rgba(255,255,255,0.90) 0%, rgba(255,255,255,0.90) 100%);
+    background: -ms-linear-gradient(left, rgba(255,255,255,0.90) 0%, rgba(255,255,255,0.90) 100%);
+    background: linear-gradient(to right, rgba(255,255,255,0.90) 0%, rgba(255,255,255,0.90) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );
+}
+
+.material-icons{
+    cursor: pointer;
+}
+
+.col-sm-2, .col-sm-4, .col-sm-6, .col-sm-8, .col-sm-10{
+    padding: 5px;
+}
+.col-sm-4, .col-sm-6, .col-sm-8, .col-sm-10{
+    font-weight: bold;
+    background-color: snow;
+}
+.col-sm-2{
+background-color: whitesmoke;
+}
